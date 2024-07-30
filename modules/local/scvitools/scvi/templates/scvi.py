@@ -46,7 +46,7 @@ n_epochs = int(min([round((20000 / adata.n_obs) * 400), 400]))
 
 SCVI.setup_anndata(adata, **setup_kwargs)
 model = SCVI(adata, **model_kwargs)
-model.train(max_epochs=n_epochs, acceleator="gpu", **train_kwargs)
+model.train(max_epochs=n_epochs, accelerator="gpu", **train_kwargs)
 
 adata.obsm["X_emb"] = model.get_latent_representation()
 
